@@ -43,13 +43,14 @@
 int cmd_quit(int nargs, char **args) {
 	
 	// check if not correct arguments
-	if ((!strcmp(args[1],"-i") || !strcmp(args[1],"-d") || nargs > 2) && nargs != 1)
+	if (nargs > 2)
 	{
 		printf("Incorrect arguments or number of arguments. Try again.\n");
 		return EINVAL;
 	}
-	// wait on processes to finish
-	else if (strcmp(args[1],"-d"))
+	// wait on processes to finish, unless -i asked for an immediate exit
+	// (args[1] still carries the newline from getline, so compare its first two chars)
+	else if (nargs == 1 || strncmp(args[1], "-i", 2) != 0)
 	{
 		// only wait if waiting queue is not empty
 		if (p_waiting != 0)
@@ -58,14 +59,7 @@ int cmd_quit(int nargs, char **args) {
 			while (p_waiting > 0){ }
 		}
 	}
-	// exit immediately, do not wait on processes
-	else if (strcmp(args[1],"-i"))
-	{
-		// print metrics and exit
-		performance_metrics(0,0); 
-		exit(0);
-	}
-	
+
 	// print metrics and exit
 	performance_metrics(0,0); 
 	exit(0);

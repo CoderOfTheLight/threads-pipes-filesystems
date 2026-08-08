@@ -28,6 +28,8 @@ the file-system implementation are mine.
 
 Each project builds with `make` in its directory on Linux (glibc + GCC);
 CI builds all three on every push. The code is otherwise as submitted in
-2021, with one modernization (be114ae): AUbatch's shared globals are now
-declared `extern` in the header and defined once, which GCC 10's switch to
-`-fno-common` requires for linking.
+2021, apart from three small fixes made while preparing this archive:
+AUbatch's shared globals are declared `extern` in the header and defined
+once (GCC 10's `-fno-common` default requires that to link), cpmFS's
+free-list initializer no longer overruns its array, and AUbatch's `quit`
+no longer reads an argument that was never typed.

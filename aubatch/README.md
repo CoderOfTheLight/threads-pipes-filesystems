@@ -56,5 +56,7 @@ The command parser — the dispatch table, `cmd_dispatch()`, and the REPL
 loop — began from Dr. Xiao Qin's OS/161-derived sample code, as the 2021
 file headers note. The scheduler and dispatcher modules, the policy
 sorting, the metrics, the benchmark mode, and the extended command set are
-mine. The only change since submission is declaring the shared globals
-`extern` so the program links under GCC 10 and newer.
+mine. Two fixes since submission: the shared globals are declared
+`extern` so the program links under GCC 10 and newer, and `quit` no
+longer reads an argument that was never typed (`quit -i` now really does
+skip the queue drain and exit immediately).

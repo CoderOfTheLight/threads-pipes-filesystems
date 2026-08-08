@@ -34,6 +34,10 @@ out of his OS/161-derived sample, and cpmFS's disk simulator and test driver
 are his handouts; the scheduler, the scheduling policies, the metrics, and
 the file-system implementation are mine.
 
+That split is also why there is deliberately no blanket open-source license
+here: the scaffolding is Dr. Qin's course material and is not mine to
+relicense. The repository is published for reading and evaluation.
+
 ## Building
 
 Each project builds with `make` in its directory on Linux (glibc + GCC);

@@ -50,6 +50,10 @@ captured session is in [docs/sample-session.script](docs/sample-session.script);
 benchmark runs across workload mixes are in the
 [project report](docs/project-report.pdf).
 
+[test.sh](test.sh) drives the built scheduler end to end — three jobs
+submitted out of shortest-job order — and checks the re-sorted queue, the
+metrics report, and a clean exit. CI runs it on every push.
+
 ## Provenance
 
 The command parser — the dispatch table, `cmd_dispatch()`, and the REPL

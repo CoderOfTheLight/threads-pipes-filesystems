@@ -23,6 +23,9 @@ jobs:
           make -C aubatch
           gcc -o aubatch/micro aubatch/micro.c
 
+      - name: test aubatch scheduling
+        run: sh aubatch/test.sh
+
       - name: build cpmfs
         run: make -C cpmfs
 

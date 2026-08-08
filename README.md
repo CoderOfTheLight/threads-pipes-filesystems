@@ -37,7 +37,8 @@ the file-system implementation are mine.
 ## Building
 
 Each project builds with `make` in its directory on Linux (glibc + GCC);
-CI builds all three on every push. The code is otherwise as submitted in
+CI builds all three on every push and drives AUbatch through an
+[end-to-end scheduling test](aubatch/test.sh). The code is otherwise as submitted in
 2021, apart from three small fixes made while preparing this archive:
 AUbatch's shared globals are declared `extern` in the header and defined
 once (GCC 10's `-fno-common` default requires that to link), cpmFS's

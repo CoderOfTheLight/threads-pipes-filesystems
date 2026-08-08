@@ -1,0 +1,7 @@
+# build artifacts
+*.o
+*.tgz
+pwordcount/pwordcount
+aubatch/aubatch
+aubatch/micro
+cpmfs/cpmRun

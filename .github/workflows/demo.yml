@@ -1,0 +1,20 @@
+name: demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: record the demo
+        uses: charmbracelet/vhs-action@v2
+        with:
+          path: .github/demo.tape
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-gif
+          path: demo.gif

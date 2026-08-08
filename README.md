@@ -6,10 +6,19 @@ Systems programming in C from Auburn's graduate Advanced Operating Systems
 course (COMP 7500, Spring 2021), preserved with its original semester-long
 commit history.
 
+![pwordcount, cpmFS, and AUbatch compiled and run in a terminal](docs/demo.gif)
+
+*The demo is recorded by [CI](.github/workflows/demo.yml), so everything in
+it is the real code running: pwordcount handing a file across two pipes,
+cpmFS listing, deleting, and renaming files on a disk image, and AUbatch
+taking live job submissions before reporting its scheduling metrics.*
+
+## The projects
+
 | Project | What it is | Core ideas |
 |---|---|---|
 | [`pwordcount/`](pwordcount/) | Two-process word-count tool | `fork`, two unidirectional pipes, IPC |
-| [`aubatch/`](aubatch/) | Pthread-based batch-job scheduler | producer/consumer threads, mutex + condition variables, FCFS / SJF / priority scheduling, throughput and latency metrics |
+| [`aubatch/`](aubatch/) | Pthread-based batch-job scheduler | producer/consumer threads, mutex + condition variables, FCFS / SJF / priority policies, throughput and latency metrics |
 | [`cpmfs/`](cpmfs/) | CP/M-style file system over a disk-image simulator | on-disk directory extents, free-block accounting, 8.3 filenames |
 
 Each project directory has its own README, the original project report as

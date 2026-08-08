@@ -1,9 +1,10 @@
-# Advanced Operating Systems — COMP 7500, Auburn University (Spring 2021)
+# Threads, pipes, filesystems
 
-[![build](https://github.com/CoderOfTheLight/AU-CS7500-AdvancedOS/actions/workflows/build.yml/badge.svg)](https://github.com/CoderOfTheLight/AU-CS7500-AdvancedOS/actions/workflows/build.yml)
+[![build](https://github.com/CoderOfTheLight/threads-pipes-filesystems/actions/workflows/build.yml/badge.svg)](https://github.com/CoderOfTheLight/threads-pipes-filesystems/actions/workflows/build.yml)
 
 Systems programming in C from Auburn's graduate Advanced Operating Systems
-course, preserved with its original semester-long commit history.
+course (COMP 7500, Spring 2021), preserved with its original semester-long
+commit history.
 
 | Project | What it is | Core ideas |
 |---|---|---|

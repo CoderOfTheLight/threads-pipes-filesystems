@@ -46,4 +46,6 @@ Reference output is in [docs/sample-output.txt](docs/sample-output.txt).
 test driver), and the `cpmfsys.h` interface spec are Dr. Xiao Qin's course
 handouts, unmodified apart from commenting out the prototypes the
 assignment marked optional. `cpmfsys.c` — the entire file-system
-implementation — is mine.
+implementation — is mine. One fix since submission: `makeFreeList`
+cleared `BLOCK_SIZE` entries of the `NUM_BLOCKS`-long free list,
+overrunning the array; it now clears exactly `NUM_BLOCKS`.

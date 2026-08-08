@@ -191,7 +191,7 @@ void makeFreeList()
     uint8_t *block0 = malloc(BLOCK_SIZE);
 
     // fully clear blank list
-    for (i = 0; i < BLOCK_SIZE; i++)
+    for (i = 0; i < NUM_BLOCKS; i++)
     { freeblocks[i] = 1; }
 
     // set dir block to false

@@ -24,18 +24,19 @@
 #define QUEUE_MAX_LEN 100    // max waiting queue length
 
 // global process list pointers
-int buff_next;          // next free spot in running_processes
-int buff_curr;          // current process spot in running_processes
-int buff_prev;          // next process to run
-int p_waiting;          // number of processes waiting to run
-int finished_next;      // next free spot in the finished processes list
-bool err_flag;  // if error messages will be printed
-int b_job;
+// declared extern here, defined once in schedule.c, so all files share one copy
+extern int buff_next;          // next free spot in running_processes
+extern int buff_curr;          // current process spot in running_processes
+extern int buff_prev;          // next process to run
+extern int p_waiting;          // number of processes waiting to run
+extern int finished_next;      // next free spot in the finished processes list
+extern bool err_flag;  // if error messages will be printed
+extern int b_job;
 
 // global locks
-pthread_mutex_t cmd_queue_lock;  // Lock for critical sections 
-pthread_cond_t cmd_buf_not_full; // Condition variable for buf_not_full 
-pthread_cond_t cmd_buf_not_empty; // Condition variable for buf_not_empty 
+extern pthread_mutex_t cmd_queue_lock;  // Lock for critical sections
+extern pthread_cond_t cmd_buf_not_full; // Condition variable for buf_not_full
+extern pthread_cond_t cmd_buf_not_empty; // Condition variable for buf_not_empty
 
 // scheduling policies
 enum s_policy
@@ -43,7 +44,8 @@ enum s_policy
     fcfs,
     sjf,
     priority,
-} policy;
+};
+extern enum s_policy policy;
 
 
 // struct for processes
@@ -67,9 +69,9 @@ typedef n_process *new_process;
 typedef n_process *finished_process;
 
 // process queues
-new_process running_processes[QUEUE_MAX_LEN];
-new_process finished_processes[100000];
-new_process current_process;
+extern new_process running_processes[QUEUE_MAX_LEN];
+extern new_process finished_processes[100000];
+extern new_process current_process;
 
 // dispatcher functions
 void execute_process(new_process p);

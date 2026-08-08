@@ -21,6 +21,23 @@
 #include "schedule.h"
 
 
+// single definitions of the globals declared extern in schedule.h
+int buff_next;
+int buff_curr;
+int buff_prev;
+int p_waiting;
+int finished_next;
+bool err_flag;
+int b_job;
+pthread_mutex_t cmd_queue_lock;
+pthread_cond_t cmd_buf_not_full;
+pthread_cond_t cmd_buf_not_empty;
+enum s_policy policy;
+new_process running_processes[QUEUE_MAX_LEN];
+new_process finished_processes[100000];
+new_process current_process;
+
+
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 ///////////    DISPATCHER FUNCTIONS

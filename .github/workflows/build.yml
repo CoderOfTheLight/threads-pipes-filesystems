@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build pwordcount
+        run: make -C pwordcount
+
+      - name: smoke-test pwordcount
+        working-directory: pwordcount
+        run: ./pwordcount input.txt | grep "total number of words"
+
+      - name: build aubatch
+        run: |
+          make -C aubatch
+          gcc -o aubatch/micro aubatch/micro.c
+
+      - name: build cpmfs
+        run: make -C cpmfs
+
+      - name: smoke-test cpmfs
+        working-directory: cpmfs
+        run: ./cpmRun | grep "DIRECTORY LISTING"
